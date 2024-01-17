@@ -8,7 +8,7 @@ resource "aws_macie2_classification_job" "test" {
   name     = "Testing Macie's PII detection"
   s3_job_definition {
     bucket_definitions {
-      account_id = aws_macie2_account.admin.id
+      account_id = aws_macie2_account.admin[0].id
       buckets    = [aws_s3_bucket.demo.id]
     }
   }
