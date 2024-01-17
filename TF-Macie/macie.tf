@@ -13,6 +13,6 @@ resource "aws_macie2_classification_job" "test" {
       account_id = "${data.aws_caller_identity.current.account_id}"
       buckets    = [aws_s3_bucket.demo.id]
     }
-  }
+}
   depends_on = [aws_macie2_account.local]
 }
