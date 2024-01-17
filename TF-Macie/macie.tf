@@ -11,17 +11,17 @@ resource "aws_macie2_classification_job" "test" {
   s3_job_definition {
     bucket_definitions {
       account_id = "${data.aws_caller_identity.current.account_id}"
-      buckets    = [aws_s3_bucket.demo.id]
+      buckets    = [aws_s3_bucket.demo.bucket]
     }
   }
   depends_on = [aws_macie2_account.local]
 }
 
-resource "aws_macie2_custom_data_identifier" "custom_identifier" {
-  name       = "CustomPIIIdentifier"
-  description = "Custom data identifier for PII"
+resource "aws_macie2_custom_data_identifier" "example" {
+  name                   = "NAME OF CUSTOM DATA IDENTIFIER"
+  regex                  = "John Doe|Jane Smith|123 Main St|456 Oak St|Cityville|Townsville|State|1234-5678-9012-3456|9876-5432-1098-7654"
+  description            = "Demo"
+  maximum_match_distance = 10
 
-  regex  = "(John Doe|Jane Smith|123 Main St|456 Oak St|Cityville|Townsville|State|1234-5678-9012-3456|9876-5432-1098-7654)"
-
+  depends_on = [aws_macie2_account.local]
 }
-
