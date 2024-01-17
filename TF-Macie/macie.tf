@@ -1,4 +1,4 @@
-resource "aws_macie2_account" "admin" {
+resource "aws_macie2_account" "local" {
     count  = var.enable_macie ? 1 : 0
     status = "ENABLED"
 }
@@ -14,5 +14,5 @@ resource "aws_macie2_classification_job" "test" {
       buckets    = [aws_s3_bucket.demo.bucket]
     }
   }
-  depends_on = [aws_macie2_account.admin]
+  depends_on = [aws_macie2_account.local]
 }
