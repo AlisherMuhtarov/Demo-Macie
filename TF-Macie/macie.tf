@@ -3,14 +3,6 @@ resource "aws_macie2_account" "admin" {
     status = "ENABLED"
 }
 
-output "account-id" {
-    value = aws_macie2_account.admin.id
-}
-
-output "account-created" {
-    value = aws_macie2_account.admin.created_at
-}
-
 resource "aws_macie2_classification_job" "test" {
   job_type = "ONE_TIME"
   name     = "Testing Macie's PII detection"
