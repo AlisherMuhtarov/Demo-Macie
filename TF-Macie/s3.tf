@@ -24,5 +24,5 @@ resource "aws_s3_bucket_acl" "private" {
 resource "aws_s3_object" "object" {
   bucket = aws_s3_bucket.demo.id
   key    = "PII"
-  source = "../PII-Files/*"
+  source = ["../PII-Files/dummy_info_1", "../PII-Files/dummy_info_2", "../PII-Files/dummy_info_3", "../PII-Files/dummy_info_4", "../PII-Files/dummy_info_5"]
 }

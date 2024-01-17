@@ -1,5 +1,4 @@
 resource "aws_macie2_account" "admin" {
-    status                       = "ENABLED"
 }
 
 output "account-id" {
