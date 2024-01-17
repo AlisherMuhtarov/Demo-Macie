@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "demo" {
-  bucket = "macie-monitered-s3-bucket"
+  bucket = "macie-monitered-s3-bucket-test"
 
   tags = {
     Name        = "macie-bucket"
