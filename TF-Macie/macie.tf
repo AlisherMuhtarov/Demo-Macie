@@ -16,3 +16,13 @@ resource "aws_macie2_classification_job" "test" {
   }
   depends_on = [aws_macie2_account.local]
 }
+
+resource "aws_macie2_custom_data_identifier" "custom_identifier" {
+  name       = "CustomPIIIdentifier"
+  description = "Custom data identifier for PII"
+
+  regex  = "(John Doe|Jane Smith|123 Main St|456 Oak St|Cityville|Townsville|State|1234-5678-9012-3456|9876-5432-1098-7654)"
+
+  ignore_words = ["St"]  # Ignore common words like "St" to avoid false positives
+}
+
