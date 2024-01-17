@@ -3,7 +3,7 @@ resource "aws_macie2_account" "local" {
     status = "ENABLED"
 }
 
-resource "aws_macie2_classification_job" "test" {
+resource "aws_macie2_classification_job" "newjob" {
   job_type = "ONE_TIME"
   name     = "PII-Detection-${timestamp()}"
   initial_run = true
