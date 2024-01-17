@@ -5,7 +5,7 @@ resource "aws_macie2_account" "local" {
 
 resource "aws_macie2_classification_job" "test" {
   job_type = "ONE_TIME"
-  name     = "Name-testing"
+  name     = "PII-Detection-${timestamp()}"
   initial_run = true
   sampling_percentage = 100
   s3_job_definition {
