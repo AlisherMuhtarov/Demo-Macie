@@ -1,4 +1,6 @@
 resource "aws_macie2_account" "admin" {
+    count  = var.enable_macie ? 1 : 0
+    status = "ENABLED"
 }
 
 output "account-id" {
