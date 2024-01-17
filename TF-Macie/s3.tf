@@ -24,6 +24,6 @@ resource "aws_s3_bucket_acl" "private" {
 resource "aws_s3_object" "object" {
     for_each = fileset("../PII-Files/", "**")
     bucket = aws_s3_bucket.demo.id
-    key    = "PII"
+    key    = each.value
     source = "../PII-Files/${each.value}"
 }
