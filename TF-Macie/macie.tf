@@ -5,7 +5,7 @@ resource "aws_macie2_account" "admin" {
 
 resource "aws_macie2_classification_job" "test" {
   job_type = "ONE_TIME"
-  name     = "Testing Macie's PII detection"
+  name     = "PII-Detection-${timestamp()}"
   s3_job_definition {
     bucket_definitions {
       account_id = "${data.aws_caller_identity.current.account_id}"
