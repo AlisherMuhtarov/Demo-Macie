@@ -20,7 +20,7 @@ resource "aws_macie2_classification_job" "test" {
 
 resource "aws_macie2_custom_data_identifier" "address" {
   name                   = "address_identifier"
-  regex                  = "address"
+  regex                  = "Address"
   description            = "regex for address"
   maximum_match_distance = 7
 
