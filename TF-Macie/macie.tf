@@ -19,7 +19,9 @@ resource "aws_macie2_classification_job" "test" {
 
 resource "aws_macie2_custom_data_identifier" "address" {
   name                   = "address_identifier"
-  regex                  = "^\\d+\\s[A-Za-z0-9\\s.,-]+$"
+  regex                  = <<EOT
+    ^\d+\s[A-Za-z\s]+,\s[A-Za-z\s]+,\s[A-Za-z]+$
+  EOT
   description            = "Demo"
   maximum_match_distance = 7
 
@@ -28,7 +30,9 @@ resource "aws_macie2_custom_data_identifier" "address" {
 
 resource "aws_macie2_custom_data_identifier" "name" {
   name                   = "name_identifier"
-  regex                  = "^[A-Za-z\\s\\.'-]+$"
+  regex                  = <<EOT
+    ^[A-Za-z]+\s[A-Za-z]+$
+  EOT
   description            = "Demo"
   maximum_match_distance = 4
 
@@ -37,7 +41,9 @@ resource "aws_macie2_custom_data_identifier" "name" {
 
 resource "aws_macie2_custom_data_identifier" "ccn" {
   name                   = "ccn_identifier"
-  regex                  = "^\d{4}-\d{4}-\d{4}-\d{4}$"
+  regex                  = <<EOT
+    ^\d{4}-\d{4}-\d{4}-\d{4}$
+EOT
   description            = "Demo"
   maximum_match_distance = 6
 
