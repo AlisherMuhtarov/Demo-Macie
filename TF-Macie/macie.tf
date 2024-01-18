@@ -39,7 +39,7 @@ resource "aws_macie2_custom_data_identifier" "name" {
   depends_on = [aws_macie2_account.local]
 }
 
-resource "aws_macie2_custom_data_identifier" "tsetdg" {
+resource "aws_macie2_custom_data_identifier" "ccn" {
   name                   = "ccn_identifier"
   regex                  = <<EOT
     ^\d{4}-\d{4}-\d{4}-\d{4}$
