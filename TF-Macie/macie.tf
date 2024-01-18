@@ -37,7 +37,7 @@ resource "aws_macie2_custom_data_identifier" "name" {
 
 resource "aws_macie2_custom_data_identifier" "ccn" {
   name                   = "ccn_identifier"
-  regex                  = "^\\d{4}-?\\d{4}-?\\d{4}-?\\d{4}$"
+  regex                  = "^\d{4}-\d{4}-\d{4}-\d{4}$"
   description            = "Demo"
   maximum_match_distance = 6
 
