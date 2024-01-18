@@ -8,7 +8,7 @@ resource "aws_macie2_classification_job" "test" {
   name     = "PII-Detection-${timestamp()}"
   initial_run = true
   sampling_percentage = 100
-  custom_data_identifier_ids = ["79ca27ee-de84-4b11-b3a3-18fb42b94a28", "9a56da7e-4075-4ac7-87b5-e673118e9645", "c9e33111-c54d-4bb2-99b4-65c17e4c6901"]
+  custom_data_identifier_ids = [aws_macie2_custom_data_identifier.address.id, aws_macie2_custom_data_identifier.ccn.id, aws_macie2_custom_data_identifier.name.id]
   s3_job_definition {
     bucket_definitions {
       account_id = "${data.aws_caller_identity.current.account_id}"
